@@ -48,6 +48,19 @@ BinderHub image for two reasons:
 The SAS serves the same files over HTTPS, so `binder_access.py` sidesteps both
 problems and needs no setup in the container.
 
+## Dependencies
+
+Each notebook opens with a _Required Python dependencies_ (or _Dependencies_)
+section listing what it needs, and some include a `pip install` or `conda
+install` line to set that up.
+
+On the BinderHub you can skip that step — everything is already installed in the
+image via the repository's [`requirements.txt`](../../../requirements.txt), which
+is what the Binder builds from. Those sections are there for running the
+notebooks outside the Binder, where you do need to install things yourself.
+
+One package is worth a special mention on the Binder: `ipympl`, below.
+
 ## Interactive figures
 
 The notebooks that use `%matplotlib widget` need `ipympl`, which is listed in the
